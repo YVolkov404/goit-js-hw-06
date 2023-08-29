@@ -1,2 +1,3 @@
-## module-6 :: dom && events 
-### goit-js-hw-06
+# module-6 :: dom && events
+
+## goit-js-hw-06
