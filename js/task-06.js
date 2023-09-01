@@ -7,7 +7,6 @@
  */
 
 const formInput = document.querySelector('input');
-const formInputBorderStyles = document.querySelector('style');
 
 formInput.addEventListener('blur', onInputBlur);
 
