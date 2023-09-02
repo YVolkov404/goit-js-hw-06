@@ -5,13 +5,17 @@
  *  !___ для генерування випадкового кольору використовуй функцію getRandomHexColor
  */
 
+const body = document.querySelector('body');
 const button = document.querySelector('button.change-color');
-const backgroundColor = document.querySelector('span');
+const backgroundColorHex = document.querySelector('span');
 
 button.addEventListener('click', onClickChangeColor);
 
 function onClickChangeColor(event) {
-    backgroundColor.style.backgroundColor = getRandomHexColor();
+    backgroundColorHex.textContent = getRandomHexColor();
+    body.style.backgroundColor = getRandomHexColor();
+
+    console.log(backgroundColorHex.textContent);
 }
 
 function getRandomHexColor() {
