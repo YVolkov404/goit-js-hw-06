@@ -11,4 +11,27 @@
  *  !___ виведи об'єкт із введеними даними в консоль і очисть значення полів форми методом reset
  */
 
-const loginForm = document.querySelector('login-form');
+const loginForm = document.querySelector('form.login-form');
+
+loginForm.addEventListener('submit', onSubmitBtnClick);
+
+function onSubmitBtnClick(event) {
+    event.preventDefault();
+
+    const formEl = event.currentTarget.elements;
+
+    const email = formEl.email.value;
+    const password = formEl.password.value;
+
+    if (email === '' || password === '') {
+        alert('Fill in the form fields, please!');
+    } else {
+        const formData = {
+            email,
+            password,
+        };
+        console.log(formData);
+    }
+
+    loginForm.reset();
+}
