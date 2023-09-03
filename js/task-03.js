@@ -22,24 +22,10 @@ const images = [
     },
 ];
 
-const galleryList = document.querySelector('.gallery');
+const galleryList = document.querySelector('ul.gallery');
 
-const createGalleryListMarkup = imagesCollection =>
-    imagesCollection.map(attribute => {
-        const galleryItemList = document.createElement('li');
-        const galleryItemListImg = document.createElement('img');
+const createGalleryListMarkup = images.map(image => {
+    return `<li><img src = '${image.url}' alt = '${image.alt}' /></li>`;
+});
 
-        galleryItemListImg.setAttribute('src', `${attribute.url}`);
-        galleryItemListImg.setAttribute('alt', `${attribute.alt}`);
-
-        // similar way to set attributes to elements
-        // galleryItemListImg.src = attribute.url;
-        // galleryItemListImg.alt = attribute.alt;
-
-        galleryItemList.insertAdjacentElement('afterbegin', galleryItemListImg);
-
-        return galleryItemList;
-    });
-
-const itemListMarkup = createGalleryListMarkup(images);
-galleryList.append(...itemListMarkup);
+galleryList.insertAdjacentHTML('afterbegin', createGalleryListMarkup);

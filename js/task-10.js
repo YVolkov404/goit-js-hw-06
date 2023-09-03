@@ -17,27 +17,34 @@ const boxes = document.querySelector('div#boxes');
 boxes.style.marginTop = Number(30) + 'px';
 
 // inputAmountOfBoxes.addEventListener('click', createBoxes);
-buttonCreate.addEventListener('click', createBoxes);
-buttonDestroy.addEventListener('click', destroyBoxes);
+buttonCreate.addEventListener('click', onCreateButtonClick);
+buttonDestroy.addEventListener('click', ondestroyButtonClick);
+
+function onCreateButtonClick(event) {
+    const inputValue = inputAmountOfBoxes.value;
+
+    createBoxes(inputValue);
+}
+
+function ondestroyButtonClick(event) {
+    destroyBoxes();
+}
 
 function createBoxes(amount) {
-    amount = inputAmountOfBoxes.value;
-
-    for (let i = 1; i <= amount; i += 1) {
+    let boxSizes = 30;
+    const boxArray = [];
+    for (let i = 0; i < amount; i += 1) {
         const box = document.createElement('div');
 
-        box.style.width = Number(30) + 'px';
-        box.style.height = Number(30) + 'px';
-
-        // for (let i = 0; i <= 1000; i += 10) {
-        //     console.log((box.style.width = Number(30 + i) + 'px'));
-        //     console.log((box.style.height = Number(30 + i) + 'px'));
-        // }
-
+        box.style.width = `${boxSizes}px`;
+        box.style.height = `${boxSizes}px`;
         box.style.backgroundColor = getRandomHexColor();
 
-        boxes.append(box);
+        boxArray.push(box);
+
+        boxSizes += 10;
     }
+    boxes.append(...boxArray);
 }
 
 function destroyBoxes(event) {

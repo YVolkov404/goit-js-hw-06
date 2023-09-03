@@ -11,6 +11,7 @@ const text = document.querySelector('span');
 formInput.addEventListener('input', fontSizeControl);
 
 function fontSizeControl(event) {
+    text.style.fontSize = event.currentTarget.min;
     const fontSizeValue = event.currentTarget.value;
     text.style.fontSize = `${fontSizeValue}px`;
 }
