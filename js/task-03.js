@@ -28,4 +28,4 @@ const createGalleryListMarkup = images.map(image => {
     return `<li><img src = '${image.url}' alt = '${image.alt}' /></li>`;
 });
 
-galleryList.insertAdjacentHTML('afterbegin', createGalleryListMarkup);
+galleryList.insertAdjacentHTML('afterbegin', createGalleryListMarkup.join(''));

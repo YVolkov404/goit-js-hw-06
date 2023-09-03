@@ -47,7 +47,7 @@ function createBoxes(amount) {
     boxes.append(...boxArray);
 }
 
-function destroyBoxes(event) {
+function destroyBoxes() {
     // boxes.remove();
     boxes.innerHTML = '';
 }
